@@ -1,0 +1,5 @@
+<ol>
+<%current_user.recettes.each do |i|%>
+    <li><%=link_to i.titre, "mesrecettes/#{i.id}"%></li>
+<%end%>
+</ol>

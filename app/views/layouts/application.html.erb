@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Recettes</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%if current_user%>
+    <span style="float:right"><%= link_to "Déconnexion",destroy_user_session_path, method: "delete"%></span>
+    <span style="float:right"><%= link_to "Mes Recettes",my_recepies_path, method: "get"%></span>
+
+    <%else%>
+    <span><%= link_to "Connection",new_user_session_path, method: "get"%></span>
+    <span><%= link_to "inscription",new_user_registration_path, method: "get"%></span>
+    <%end%>
+    <%= yield %>
+  </body>
+</html>

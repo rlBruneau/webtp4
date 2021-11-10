@@ -1,0 +1,20 @@
+<ul>
+<%if current_user.is_admin?%>
+    <% for i in 0..@users.length-1 %>
+        <%if @users[i].recettes.length > 0%>
+            <li><%= @users[i].nom%></li>
+            <ol>
+                <% for j in 0..@users[i].recettes.length-1%>
+                    <li><%=link_to @users[i].recettes[j].titre, "#{admin_show_path}/#{@users[i].recettes[j].id}", {data: { turbolinks: false }} %></li>
+                <%end%>
+            </ol>
+        <%end%>
+    <%end%>
+</ul>
+    <%else%>
+<ol>
+    <% for i in 0..@recepies.length-1 %>
+        <li><a href="recette/<%=@recepies[i].id%>"><%= @recepies[i].titre%></a></li>    
+    <%end%>
+<%end%>
+</ol>

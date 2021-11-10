@@ -1,0 +1,13 @@
+<% if current_user != nil %>
+  <h1>Les recettes de <%= current_user.nom%></h1>
+<%end%>
+<h1><%= @recepe.titre %></h1>
+<h2>Ingrediants</h2>
+<ul>
+    <% for i in 0..@ingrediants.length-1 %>
+        <li>
+          <%= @ingrediants[i].nom%>, <%=@recepe_ingredients[i].quantite%> <%= @recepe_ingredients[i].unite%>
+        </li>
+      <% end %>
+</ul>
+<p><%= @recepe.etapes%></p>
